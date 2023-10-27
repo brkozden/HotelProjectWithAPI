@@ -1,0 +1,54 @@
+﻿@model HotelProject.WebUI.Dtos.BookingDto.UpdateBookingDto
+@{
+
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+
+}
+<h2>Rezervasyon Güncelleme Sayfası</h2>
+<form method="post">
+    <input type="hidden" asp-for="BookingId" />
+    <div class="form-group">
+        <label>Misafir Adı Soyadı</label>
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Mail Adresi</label>
+        <input type="email" asp-for="Mail" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Giriş Tarihi</label>
+        <input type="date" asp-for="CheckIn" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Çıkış Tarihi</label>
+        <input type="date" asp-for="CheckOut" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Yetişkin Sayısı</label>
+        <input type="number" asp-for="AdultCount" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Çocuk Sayısı</label>
+        <input type="number" asp-for="ChildCount" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Oda Sayısı</label>
+        <input type="number" asp-for="RoomCount" class="form-control" />
+    </div>
+
+
+    <div class="form-group">
+        <label>Özel İstekler</label>
+        <input type="text" asp-for="SpecialRequest" class="form-control" />
+        <textarea type="text" asp-for="Description" rows="3" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Açıklama</label>
+        <textarea type="text" asp-for="Description" rows="4" class="form-control" />
+    </div>
+    <input type="hidden" asp-for="Status"/>
+
+    <br />
+    <button class="btn btn-primary">Rezervasyonu Güncelle</button>
+</form>
+

@@ -1,0 +1,21 @@
+﻿@model HotelProject.WebUI.Models.Role.UpdateRoleViewModel
+@{
+    ViewData["Title"] = "UpdateRole";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+
+}
+<h2> Rol Güncelleme Sayfası </h2>
+<br />
+<form method="post">
+    <div class="form-group">
+        <label>Role ID</label>
+        <input type="text" readonly="true" asp-for="RoleId" class="form-control" />
+        <label>Role Adı</label>
+        <input type="text" asp-for="RoleName" class="form-control" />
+
+    </div>
+    <br />
+    <button class="btn btn-primary">Rolü Güncelle</button>
+</form>
+
+

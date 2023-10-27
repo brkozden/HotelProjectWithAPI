@@ -1,0 +1,58 @@
+﻿@model List<InboxContactDto>
+@{
+    ViewData["Title"] = "Inbox";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+
+
+}
+
+       
+                    <div class="email-left-box">
+    <a href="/AdminContact/AddSendMessage" class="btn btn-primary btn-block">Yeni Mesaj Oluştur</a>
+    <div class="mail-list mt-4">
+        <a href="/AdminContact/Inbox" class="list-group-item border-0 text-primary p-r-0"><i class="fa fa-inbox font-18 align-middle mr-2"></i> <b>Gelen Kutusu</b> <span class="badge badge-primary badge-sm float-right m-t-5">@ViewBag.getContactCount</span> </a>
+        <a href="/AdminContact/Sendbox" class="list-group-item border-0 p-r-0"><i class="fa fa-paper-plane font-18 align-middle mr-2"></i>Gönderilenler <span class="badge badge-danger badge-sm float-right m-t-5">@ViewBag.getSendCount</span></a>
+
+
+    </div>
+
+                <h5 class="mt-5 m-b-10">Kategoriler</h5>
+                @await Html.PartialAsync("SidebarAdminContactCategoryPartial")
+    </div>
+
+                    <div class="email-right-box">
+                        <div role="toolbar" class="toolbar mb-3">
+                            <div class="btn-group">
+                                <button aria-expanded="false"  class="btn btn-dark" type="button">
+                            Gelen Mesajlar <span class="caret m-l-5"></span>
+                                </button>
+                           
+                            </div>
+                        </div>
+                        <div class="email-list m-t-15">
+                    @foreach(var item in Model)
+                    {
+                            <div class="message">
+                <a href="/AdminContact/MessageDetailsByInbox/@item.ContactId">
+                                    <div class="col-mail col-mail-1">
+                                        <div class="email-checkbox">
+                                            <input type="checkbox" id="chk4">
+                                            <label class="toggle" for="chk4"></label>
+                                        </div><span class="star-toggle ti-star"></span>
+                                    </div>
+                                    <div class="col-mail col-mail-2 text-truncate">
+                       
+                                        <div class="subject">@item.Message</div>
+                                        <div class="date">@item.Date.ToShortDateString()</div>
+                                    </div>
+                   
+                                </a>
+                            </div>
+                          
+                           
+                    }
+                        </div>
+                   
+                    </div>
+                
+          
